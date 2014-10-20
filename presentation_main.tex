@@ -39,7 +39,7 @@
 \setbeamerfont{framesubtitle}{size=\small}
 
 \setbeamertemplate{background canvas}{
-    \put(320,-283){\includegraphics[width=0.15\textwidth]{ut-seal}}
+    \put(315,-271){\includegraphics[width=0.15\textwidth]{UTwordmark}}
 }
 
 \mode<handout>{
@@ -75,7 +75,7 @@
 
 \usepackage[style=verbose,labelyear=true,minnames=2,maxnames=10,maxbibnames=99,backend=biber]{biblatex}
 %\addbibresource{jogrady_bibdesk.bib}
-\bibliography{/Users/fes788/Documents/LaTeX/include/all.bib}
+\bibliography{include/all.bib}
 
 \newcommand{\highlight}[1]{%
   \colorbox{utblack!20}{$\displaystyle#1$}}
@@ -116,7 +116,7 @@
 
 %For footnote citing
 \usefootnotetemplate{ 
-  \parbox[b]{0.95\textwidth}{
+  \parbox[b]{0.90\textwidth}{
   \tiny
   \parindent 1em 
   \noindent
@@ -128,7 +128,7 @@
 %\usepackage[bigfiles,draft]{media9}
 \usepackage[bigfiles]{media9}
 
-\input{/Users/fes788/Documents/LaTeX/include/mydefs.tex}
+\input{include/mydefs.tex}
 \newcommand{\diagrampath}{./diagrams/}
 \newcommand{\plotpath}{./plots}
 \newcommand{\mathbi}[1]{\mathit{\mathbf{#1}}}
@@ -146,11 +146,10 @@
 %\renewcommand{\figurename}{}
 \usepackage[labelsep=none,labelformat=empty, font=scriptsize]{caption}
 
-\title{Predictive simulation of material failure using peridynamics:}
-\subtitle{advanced constitutive modeling, verification, and validation}
+\title{Fracture in plates and shells with peridynamic non-ordinary state-based models}
 \author{John T. Foster \\ \href{mailto:jfoster@austin.utexas.edu}{jfoster@austin.utexas.edu}}
 \institute{The University of Texas at Austin}
-\date{September 3, 2014}
+\date{October 28, 2014}
 
 \begin{document}
 \begin{frame}
