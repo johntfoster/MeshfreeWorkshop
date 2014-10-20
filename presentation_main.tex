@@ -1,0 +1,169 @@
+\documentclass[t,serif]{beamer}  
+%\documentclass[t,serif,draft]{beamer}  
+%\documentclass[t,serif,draft,handout]{beamer}  
+%\documentclass[t,serif,handout]{beamer}  
+\usetheme{Singapore}                 
+\usecolortheme{dove}                 
+\setbeamertemplate{navigation symbols}{}
+\setbeamerfont{note page}{size=\scriptsize}
+\setbeamertemplate{note page}{\insertnote\par}
+
+\definecolor{utorange}{RGB}{203,96,21}
+\definecolor{utblack}{RGB}{99,102,106}
+\definecolor{utbrown}{RGB}{110,98,89}
+\definecolor{utsecbrown}{RGB}{217,200,158}
+\definecolor{utsecgreen}{RGB}{208,222,187}
+\definecolor{utsecblue}{RGB}{127,169,174}
+
+% Color Theme 
+\setbeamercolor{normal text}{bg=white,fg=utblack}
+\setbeamercolor{structure}{fg=utorange}
+
+\setbeamercolor{alerted text}{fg=utorange}
+
+\setbeamercolor{item projected}{use=item,fg=black,bg=item.fg!35}
+
+\setbeamercolor*{palette primary}{use=structure,fg=white, bg=utorange}
+\setbeamercolor*{palette secondary}{use=structure,bg=utsecbrown}
+\setbeamercolor*{palette tertiary}{use=structure,bg=utsecgreen}
+\setbeamercolor*{palette quaternary}{use=structure,fg=structure.fg,bg=utsecblue}
+
+% \setbeamercolor*{frametitle}{use=structure,fg=utorange, bg=utsecbrown}
+\setbeamercolor*{framesubtitle}{fg=utbrown}
+
+\setbeamercolor*{block title}{parent=structure,fg=black,bg=utsecgreen}
+\setbeamercolor*{block body}{fg=black,bg=utblack!10}
+\setbeamercolor*{block title alerted}{parent=alerted text,bg=black!15}
+\setbeamercolor*{block title example}{parent=example text,bg=black!15}
+
+\setbeamerfont{framesubtitle}{size=\small}
+
+\setbeamertemplate{background canvas}{
+    \put(320,-283){\includegraphics[width=0.15\textwidth]{ut-seal}}
+}
+
+\mode<handout>{
+\usepackage{pgfpages}
+\setbeameroption{show notes}
+%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+}
+
+% more preamble...
+\usepackage{graphicx}
+\graphicspath{{./diagrams/}{./images/}{./plots/}}
+\usepackage{textpos} 
+\usepackage{calc}
+\usepackage{color}
+\usepackage{epsfig}
+\usepackage{amssymb,amsmath}
+\usepackage{epstopdf}
+\usepackage{etoolbox}
+\usepackage{tikz}
+\usepackage{xfrac}
+\usepackage{ragged2e}
+\usepackage{import}
+%\usepackage[doi=false,backend=bibtex]{biblatex}
+%\bibliography{jogrady_bibdesk}
+%\usepackage{biblatex}
+%\addbibresource{jogrady_bibdesk.bib}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\usepackage{cancel}
+\renewcommand{\CancelColor}{\color{utorange}}
+
+
+
+\usepackage[style=verbose,labelyear=true,minnames=2,maxnames=10,maxbibnames=99,backend=biber]{biblatex}
+%\addbibresource{jogrady_bibdesk.bib}
+\bibliography{/Users/fes788/Documents/LaTeX/include/all.bib}
+
+\newcommand{\highlight}[1]{%
+  \colorbox{utblack!20}{$\displaystyle#1$}}
+
+\renewcommand*{\labelnamepunct}{\addcolon\addspace}
+\DeclareFieldFormat
+[article,inbook,incollection,inproceedings,patent,thesis,unpublished]
+{title}{#1\isdot}
+\renewbibmacro*{cite:short}{%
+  \printnames{labelname}%
+  \setunit*{\addspace}%
+  \printtext[bibhyperlink]{%
+    \printfield{labelyear}\printfield{extrayear}}}
+
+%Remove footnote marks
+\newcommand\footnotenonum[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+\makeatletter
+\renewrobustcmd{\blx@mkbibfootnote}[2]{%
+  \iftoggle{blx@footnote}
+    {\blx@warning{Nested notes}%
+     \addspace\mkbibparens{#2}}
+    {\unspace
+     \ifnum\blx@notetype=\tw@
+       \expandafter\@firstoftwo
+     \else
+       \expandafter\@secondoftwo
+     \fi
+       {\csuse{blx@theendnote#1}{\protecting{\blxmkbibnote{end}{#2}}}}
+       {\csuse{footnotenonum#1}{\protecting{\blxmkbibnote{foot}{#2}}}}}}
+\makeatother
+
+
+%For footnote citing
+\usefootnotetemplate{ 
+  \parbox[b]{0.95\textwidth}{
+  \tiny
+  \parindent 1em 
+  \noindent
+  \hbox to 1.8 em{\hfil\insertfootnotemark}
+  \insertfootnotetext
+  }
+} 
+
+%\usepackage[bigfiles,draft]{media9}
+\usepackage[bigfiles]{media9}
+
+\input{/Users/fes788/Documents/LaTeX/include/mydefs.tex}
+\newcommand{\diagrampath}{./diagrams/}
+\newcommand{\plotpath}{./plots}
+\newcommand{\mathbi}[1]{\mathit{\mathbf{#1}}}
+\newcommand\vstate[3]{%
+	\mathbf{\underline{#1}}%
+	\ifstrempty{#2}{}{[#2]}%
+	\ifstrempty{#3}{}{\langle #3 \rangle}%
+	}
+\newcommand\sstate[3]{%
+	\mathit{\underline{#1}}%
+	\ifstrempty{#2}{}{[#2]}%
+	\ifstrempty{#3}{}{\langle #3 \rangle}%
+	}
+
+%\renewcommand{\figurename}{}
+\usepackage[labelsep=none,labelformat=empty, font=scriptsize]{caption}
+
+\title{Predictive simulation of material failure using peridynamics:}
+\subtitle{advanced constitutive modeling, verification, and validation}
+\author{John T. Foster \\ \href{mailto:jfoster@austin.utexas.edu}{jfoster@austin.utexas.edu}}
+\institute{The University of Texas at Austin}
+\date{September 3, 2014}
+
+\begin{document}
+\begin{frame}
+\titlepage
+\note{ }
+\end{frame}
+
+\begin{frame}
+\frametitle{Outline}
+\tableofcontents[hideallsubsections]
+\note{ }
+\end{frame}
+
+\input{presentation.tex}
+
+\end{document}
