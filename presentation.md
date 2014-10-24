@@ -167,21 +167,55 @@ $$
 
 \note{}
 
+
+### Discretization
+
+\begin{columns}[T]
+
+    \column{0.33\textwidth}
+
+    \begin{figure}
+        \begin{center}
+        \resizebox{\linewidth}{!}{\input{./diagrams/PotatoContinuous2.tex}}
+        \end{center}
+        \caption{Peridynamic Continuum}
+    \end{figure}
+    
+    \column{0.33\textwidth}
+
+    \begin{figure}
+        \centering
+        \resizebox{0.9\linewidth}{!}{\subinputfrom{\diagrampath}{PotatoMeshed2.eps_tex}}
+        \vspace{3mm}
+        \caption{Set Massive, Volumeless Nodes at Mesh Centroids}
+    \end{figure}
+
+    \column{0.33\textwidth}
+
+    \begin{figure}
+        \begin{center}
+        \resizebox{\linewidth}{!}{\input{./diagrams/PotatoDiscrete2.tex}}
+        \end{center}
+        \caption{Discard Mesh, Find Discrete Familes and Bond Pairs}
+    \end{figure}
+    
+\end{columns}
+
+
+\note{}
+
+
 ### Regular Discretization
 
-<!-- 
-\vfill
- -->
-
 $$
-\alpha = \frac{c\; \Delta x}{m} ;\; c= EI ;\; m=\sum_{i=1}^n \omega(\boldsymbol{\xi}_i)\boldsymbol{\xi}_i^2 \implies \nonumber \\
+\alpha = \frac{c\; \Delta x}{m} ;\; c= EI ;\; m=\sum_{i=1}^n \omega(\boldsymbol{\xi}_i)\boldsymbol{\xi}_i^2; \nonumber \\
 $$
 
 \vspace{-10mm}
 
 \begin{align*}
 \rho(\mathbf{x})\mathbf{\ddot{u}}(\mathbf{x}) = \mathbf{f}(\mathbf{x})&+\sum_i \omega(\boldsymbol{\xi}_i)\left\{\frac{\alpha(\mathbf{x})}{|\mathbf{p}_i |}\frac{\mathbf{p}_i}{|\mathbf{p}_i |}\times \left[ \frac{\mathbf{p}_i}{|\mathbf{p}_i |}\times \frac{\mathbf{q}_i}{|\mathbf{q}_i |}\right] \right. \notag \\
-& \left. -\frac{\alpha(\mathbf{x}+\boldsymbol{\xi}_i)}{|\mathbf{p}_i |}\frac{(-\mathbf{p}_i)}{|\mathbf{p}_i |}\times\left[\frac{(-\mathbf{p}_i)}{|\mathbf{p}_i |}\times \frac{\mathbf{r}_i}{|\mathbf{r}_i |} \right] \right\} \,,
+& \left. -\frac{\alpha(\mathbf{x}+\boldsymbol{\xi}_i)}{|\mathbf{p}_i |}\frac{(-\mathbf{p}_i)}{|\mathbf{p}_i |}\times\left[\frac{(-\mathbf{p}_i)}{|\mathbf{p}_i |}\times \frac{\mathbf{r}_i}{|\mathbf{r}_i |} \right] \right\} \,.
 \end{align*}
 
 \begin{center}
@@ -231,7 +265,7 @@ $$
 \note{}
 
 ### Beam Results
-
+\vspace{-5mm}
 \begin{columns}[T] % contents are top vertically aligned
 
     \column{0.5\textwidth}
@@ -251,7 +285,6 @@ $$
     \end{figure}
 
 \end{columns}
-
 \footcite{jogrady2014a}
 
 \note{}
@@ -331,37 +364,10 @@ A bending ``pressure'' proportional to the isotropic curvature $\bar{\boldsymbol
 \footcite{jogrady2014b}
 
 \note{}
+
+
 <!-- 
-
-### Discretization
-
-\begin{columns}[T]
-     
-    \column{0.5\textwidth}
-
-    \begin{figure}
-        \centering
-        \vspace{-3mm}
-        \resizebox{\linewidth}{!}{\input{\plotpath/irregularMesh50.pgf}}
-        \caption{Irregular Mesh}
-    \end{figure}
-
-    \column{0.5\textwidth}
-
-    \begin{figure}[htbp]
-      \centering
-      \resizebox{\linewidth}{!}{./diagrams/VirtualPoint_T.tex}
-      \caption{Virtual Points for Unpaired Neighbors}
-      \label{fig:virtualpoint}
-    \end{figure}
-    
-\end{columns}
-
-\note{}
- -->
-
-
-### Discretization
+### Irregular Discretization
 
 \begin{columns}[B]
      
@@ -389,9 +395,11 @@ A bending ``pressure'' proportional to the isotropic curvature $\bar{\boldsymbol
 \footcite{jogrady2014b}
 
 \note{}
+ -->
 
 
 ### Plate Results
+\vspace{-5mm}
 
 \begin{columns}[T]
      
