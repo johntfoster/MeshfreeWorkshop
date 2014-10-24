@@ -167,6 +167,37 @@ $$
 
 \note{}
 
+### Regular Discretization
+
+<!-- 
+\vfill
+ -->
+
+$$
+\alpha = \frac{c\; \Delta x}{m} ;\; c= EI ;\; m=\sum_{i=1}^n \omega(\boldsymbol{\xi}_i)\boldsymbol{\xi}_i^2 \implies \nonumber \\
+$$
+
+\vspace{-10mm}
+
+\begin{align*}
+\rho(\mathbf{x})\mathbf{\ddot{u}}(\mathbf{x}) = \mathbf{f}(\mathbf{x})&+\sum_i \omega(\boldsymbol{\xi}_i)\left\{\frac{\alpha(\mathbf{x})}{|\mathbf{p}_i |}\frac{\mathbf{p}_i}{|\mathbf{p}_i |}\times \left[ \frac{\mathbf{p}_i}{|\mathbf{p}_i |}\times \frac{\mathbf{q}_i}{|\mathbf{q}_i |}\right] \right. \notag \\
+& \left. -\frac{\alpha(\mathbf{x}+\boldsymbol{\xi}_i)}{|\mathbf{p}_i |}\frac{(-\mathbf{p}_i)}{|\mathbf{p}_i |}\times\left[\frac{(-\mathbf{p}_i)}{|\mathbf{p}_i |}\times \frac{\mathbf{r}_i}{|\mathbf{r}_i |} \right] \right\} \,,
+\end{align*}
+
+\begin{center}
+    with
+\end{center}
+\begin{align*}
+\mathbf{p}_i &= \boldsymbol{\xi}_i+\mathbf{u}(\mathbf{x}+\boldsymbol{\xi}_i)-\mathbf{u}(\mathbf{x})\, ,\notag\\
+\mathbf{q}_i &= -\boldsymbol{\xi}_i+\mathbf{u}(\mathbf{x}-\boldsymbol{\xi}_i)-\mathbf{u}(\mathbf{x})\, ,\notag\\
+\mathbf{r}_i &= \boldsymbol{\xi}_i+\mathbf{u}(\mathbf{x}+2\boldsymbol{\xi}_i)-\mathbf{u}(\mathbf{x}+\boldsymbol{\xi}_i)\, ,\notag
+\end{align*}
+
+
+\footcite{jogrady2014a}
+
+\note{}
+
 
 ### Plasticity and Damage
 
@@ -296,6 +327,64 @@ A bending ``pressure'' proportional to the isotropic curvature $\bar{\boldsymbol
 \begin{equation}
      \vstate{T'}{}{\boldsymbol{\xi}}=\frac{8G}{m}\frac{h^3}{12}\frac{3\nu-1}{1-\nu}\frac{\omega(\boldsymbol{\xi})}{\xi^2} \bar{\boldsymbol{\kappa}} \notag
 \end{equation}
+
+\footcite{jogrady2014b}
+
+\note{}
+<!-- 
+
+### Discretization
+
+\begin{columns}[T]
+     
+    \column{0.5\textwidth}
+
+    \begin{figure}
+        \centering
+        \vspace{-3mm}
+        \resizebox{\linewidth}{!}{\input{\plotpath/irregularMesh50.pgf}}
+        \caption{Irregular Mesh}
+    \end{figure}
+
+    \column{0.5\textwidth}
+
+    \begin{figure}[htbp]
+      \centering
+      \resizebox{\linewidth}{!}{./diagrams/VirtualPoint_T.tex}
+      \caption{Virtual Points for Unpaired Neighbors}
+      \label{fig:virtualpoint}
+    \end{figure}
+    
+\end{columns}
+
+\note{}
+ -->
+
+
+### Discretization
+
+\begin{columns}[B]
+     
+    \column{0.45\textwidth}
+
+    \begin{figure}
+        \begin{center}
+        \vspace{-9mm}
+        \resizebox{\linewidth}{!}{\input{\plotpath/irregularMesh50.pgf}}
+        \caption{Irregular Discretization}
+        \end{center}
+    \end{figure}
+
+    \column{0.45\textwidth}
+
+    \begin{figure}
+        \begin{center}
+        \resizebox{.95\linewidth}{!}{\input{./diagrams/VirtualPoint_T.tex}}
+        \end{center}
+        \caption{Add Virtual Points}
+    \end{figure}
+    
+\end{columns}
 
 \footcite{jogrady2014b}
 
