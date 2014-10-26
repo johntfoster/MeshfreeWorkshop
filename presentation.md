@@ -366,20 +366,9 @@ A bending ``pressure'' proportional to the isotropic curvature $\bar{\boldsymbol
 \note{}
 
 
-<!-- 
 ### Irregular Discretization
 
-\begin{columns}[B]
-     
-    \column{0.45\textwidth}
-
-    \begin{figure}
-        \begin{center}
-        \vspace{-9mm}
-        \resizebox{\linewidth}{!}{\input{\plotpath/irregularMesh50.pgf}}
-        \caption{Irregular Discretization}
-        \end{center}
-    \end{figure}
+\begin{columns}[T]
 
     \column{0.45\textwidth}
 
@@ -387,15 +376,27 @@ A bending ``pressure'' proportional to the isotropic curvature $\bar{\boldsymbol
         \begin{center}
         \resizebox{.95\linewidth}{!}{\input{./diagrams/VirtualPoint_T.tex}}
         \end{center}
+        \vspace{-2mm}
         \caption{Add Virtual Points}
     \end{figure}
-    
+
+    \column{0.45\textwidth}
+
+    \begin{figure}
+        \begin{center}
+        \vspace{8mm}
+        \resizebox{.95\linewidth}{!}{\input{./diagrams/BaryCentric.tex}}
+        \end{center}
+        \vspace{6mm}
+        \caption{Barycentric Interpolation of Properties}
+    \end{figure}
+
 \end{columns}
 
 \footcite{jogrady2014b}
 
 \note{}
- -->
+
 
 
 ### Plate Results
@@ -435,6 +436,32 @@ A bending ``pressure'' proportional to the isotropic curvature $\bar{\boldsymbol
 \end{figure}
      
 \footcite{jogrady2014b}
+
+\note{}
+
+
+### Curved Shell Results
+
+\begin{columns}[B]
+     
+    \column{0.45\textwidth}
+
+    \begin{figure}
+        \centering
+        \resizebox{\linewidth}{!}{\input{\plotpath/RingMesh20.pgf}}
+        \vspace{-3mm}
+        \caption{Proving Ring}
+    \end{figure}
+
+    \column{0.55\textwidth}
+
+    \begin{figure}
+        \centering
+        \resizebox{\linewidth}{!}{\input{\plotpath/PlateRing_n.pgf}}
+        \caption{Displacement in Tension}
+    \end{figure}
+    
+\end{columns}
 
 \note{}
 
